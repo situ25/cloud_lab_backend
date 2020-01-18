@@ -1,7 +1,8 @@
 import os
 
 from flask import Flask
-from .db import connection
+from .db import init_app
+from flaskApp import storeData
 
 
 def create_app(test_config=None):
@@ -11,6 +12,7 @@ def create_app(test_config=None):
         DATABASE=os.path.join(app.instance_path, 'flaskApp.mysql'),
     )
     db.init_app(app)
+    app.register_blueprint(storeData.bp)
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
