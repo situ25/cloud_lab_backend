@@ -1,0 +1,5 @@
+HOST = "localhost"
+USER = "root"
+PASSWORD = "password"
+DATABASE = "cloud_lab"
+SECRET_KEY= "dev"
